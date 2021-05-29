@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Eyes that watch you</title>
+</head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: palevioletred;
+    }
+
+    .eyes {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+    }
+    .eye {
+      width: 240px;
+      height: 120px;
+      background: #fff;
+      display: inline-block;
+      margin: 40px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+    }
+    .ball {
+      width: 80px;
+      height: 80px;
+      background: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+  </style>
+
+  <body>
+    <div class="eyes">
+      <div class="eye">
+        <div class="ball"></div>
+      </div>
+      <div class="eye">
+        <div class="ball"></div>
+    
+      </div>
+    </div>
+
+    <p>Woooooo.... this is spooky, also quite useful, and sometimes reassuring. 
+        Call me.  Maybe.  
+      </p> 
+  </body>
+  <script>
+    var balls = document.getElementsByClassName("ball");
+    document.onmousemove = () => {
+      var x = (event.clientX * 100) / window.innerWidth + "%";
+      var y = (event.clientY * 100) / window.innerHeight + "%";
+
+      for (let i = 0; i < 2; i++) {
+        balls[i].style.left = x;
+        balls[i].style.top = y;
+        balls[i].transfoorm = "translate(-" + x + ",-" + y + ")";
+      }
+    };
+  </script>
+</html>
